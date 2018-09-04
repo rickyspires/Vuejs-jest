@@ -1,5 +1,6 @@
 <template>
   <div class="blog-posts">
+    Blog Posts
     <Loader v-if="!hasBlogPosts" :text="'Loading posts...'" />
 
     <div class="posts" v-if="hasBlogPosts">
@@ -19,15 +20,14 @@
 <script>
 import { mapGetters } from 'vuex'
 import Loader from '@/components/Loader'
-import BlogPost from '@/components/blog/BlogPost'
+// import BlogPost from '@/components/blog/BlogPost'
 
 export default {
   components: {
-    Loader,
-    BlogPost
+    Loader
   },
   computed: {
-    ...mapGetters('blog', ['blogPosts', 'hasBlogPosts', 'numberOfPosts'])
+    ...mapGetters('blog', ['blogPosts', 'hasBlogPosts'])
   },
   mounted() {
     if (!this.hasBlogPosts) {
@@ -40,8 +40,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.blog-posts {
-  max-width: 800px;
-  margin: 0 auto;
-}
+// .blog-posts {
+//   max-width: 800px;
+//   margin: 0 auto;
+// }
 </style>
